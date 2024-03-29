@@ -1,5 +1,5 @@
-package ladder;
-import static ladder.ExceptionMessage.*;
+package ladder.utils;
+import static ladder.exception.ExceptionMessage.*;
 public class NaturalNumber  {
 
     private final int num;
@@ -12,14 +12,16 @@ public class NaturalNumber  {
         return new NaturalNumber(num);
     }
 
-    public int get() {
+    public int getNum() {
         return num;
     }
 
     private void validate(int num) {
-        if (num < 1) {
-            throw new IllegalArgumentException(INVALID_NUMBER.getMessage());
+        if (!isNaturalNumber(num)) {
+            throw new IllegalArgumentException(INVALID_NATURAL_NUMBER.getMessage());
         }
     }
-
+    private boolean isNaturalNumber(int num) {
+        return num >= 1;
+    }
 }

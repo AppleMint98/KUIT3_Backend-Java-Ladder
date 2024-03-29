@@ -1,4 +1,6 @@
-package ladder;
+package ladder.core;
+
+import ladder.position.Position;
 
 public class Node {
     private Direction direction;
@@ -32,5 +34,9 @@ public class Node {
 
     public boolean isLeft() {
         return direction == Direction.LEFT;
+    }
+
+    public void appendSymbol(StringBuilder sb) {
+        sb.append(this.direction.getValue());
     }
 }
